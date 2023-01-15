@@ -32,7 +32,7 @@ difference() {
         cylinder(24,10,10);
     
     // feat cards
-    translate([57,7,13])
+    translate([56,7,13])
         cube([45,68,15]);
    
     // figure place holder 

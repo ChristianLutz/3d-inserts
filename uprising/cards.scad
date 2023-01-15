@@ -6,7 +6,7 @@ difference() {
     rotate([-90,0,0])
         translate([35,-70,-1])
             cylinder(250,30,30,$fn=6);
-    // pockets for cars here are only three
+    // pockets for cards
     for(i=pockets) {
         translate([2,i[0],-1])
             cube([66,i[1],62]);
