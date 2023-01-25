@@ -22,10 +22,20 @@ difference() {
     // spare space to easier to take the cards out
     rotate([-90, 0, 0])
         translate([width / 2, spareSpaceH(width, height), -1])
-            #cylinder(length + 2, spareSpaceW(width), spareSpaceW(width), $fn=6);
+            cylinder(length + 2, spareSpaceW(width), spareSpaceW(width), $fn=6);
     // pockets for cards
     for (i=[0:hIndex]) {
-        translate([outerThickness, pocketStart(pockets,i), groundThickness])
+        translate([outerThickness, pocketStart(pockets, i), groundThickness])
             cube([(width - 2 * outerThickness), pockets[i], height + 2]);
+    }
+    // reduce neccessary amount of filament
+    for (i=[0:hIndex]) {
+        for (x=[1:(pockets[i]/5)-1]) {
+            for (z=[0:(height/5)-4]) {
+                rotate([0, 90, 0])
+                    translate([-10 - z * 5, pocketStart(pockets, i) + x * 5, -1])
+                        cylinder(width + 2, 2, 2, $fn=25);
+            }
+        }
     }
 }
